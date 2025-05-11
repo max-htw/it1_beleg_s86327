@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lernprogramm</title>
+  <link rel="stylesheet" href="style/styles.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <header>
+    <h1>Lernprogramm</h1>
+  </header>
+
+  <main>
+    <section id="category-selection">
+      <h2>Kategorie wählen</h2>
+      <button data-category="mathe">Mathematik</button>
+      <button data-category="web">Webtechnologien</button>
+      <button data-category="noten">Noten lernen</button>
+      <button data-category="extern">Externe Fragen</button>
+    </section>
+
+    <section id="question-area" class="hidden">
+      <p id="question-text">Frage wird geladen...</p>
+      <div id="answers">
+        <!-- Buttons für Antwortmöglichkeiten werden dynamisch eingefügt -->
+      </div>
+      <progress id="progress-bar" value="0" max="100"></progress>
+    </section>
+
+    <section id="result-area" class="hidden">
+      <h2>Ergebnis</h2>
+      <p id="summary">Du hast X von Y Fragen richtig beantwortet.</p>
+      <button id="restart-btn">Erneut starten</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Lernapp – HTW Dresden</p>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
