@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   view.bindRestartButton(view.resetView);
 
   async function startQuiz(category) {
+    view.setCategory(category);
     await model.load(category);
     view.showQuizView();
     loadNextQuestion();

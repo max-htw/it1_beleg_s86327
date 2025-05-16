@@ -16,6 +16,9 @@
 - Reset-Button auch in Fragen-Ansicht angezeigt
 - Shuffle-Funktion in utils ausgelagert
 
+#### 16.05.2025
+- KaTeX integriert über CDN und in View + Main eingepflegt
+
 
 ## Lernfortschritt
 
@@ -25,6 +28,8 @@
 #### 12.05.2025
 - Erlernen von Modulen (inkl. Imports) und deren Anwendung in JavaScript
 
+#### 16.05.2025
+- Beschäftigen mit WebQuiz API
 
 ## Misserfolge
 

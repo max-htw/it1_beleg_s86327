@@ -3,6 +3,8 @@
 import { shuffle } from "./utils.js";
 
 export const view = (() => {
+  let currentCategory = "";
+
   const questionText = document.getElementById("question-text");
   const answersContainer = document.getElementById("answers");
   const progressBar = document.getElementById("progress-bar");
@@ -15,6 +17,10 @@ export const view = (() => {
     buttons.forEach(button =>
       button.addEventListener("click", () => handler(button.dataset.category))
     );
+  }
+
+  function setCategory(category) {
+    currentCategory = category;
   }
 
   function bindRestartButton(handler) {
@@ -32,13 +38,27 @@ export const view = (() => {
   }
 
   function showQuestion(question, onAnswer) {
-    questionText.textContent = question.a;
     answersContainer.innerHTML = "";
+
+    // Wenn Kategorie Mathe → mit KaTeX rendern
+    if (currentCategory === "mathe") {
+      katex.render(question.a, questionText, { throwOnError: false });
+    } else {
+      questionText.textContent = question.a;
+    }    
 
     const shuffled = shuffle([...question.l]);
     shuffled.forEach(answer => {
       const btn = document.createElement("button");
-      btn.textContent = answer;
+
+      if (currentCategory === "mathe") {
+        // Antwortelement leeren und rendern
+        btn.innerHTML = ""; // leer
+        katex.render(answer, btn, { throwOnError: false });
+      } else {
+        btn.textContent = answer;
+      }
+
       btn.addEventListener("click", () => onAnswer(answer, question.l[0]));
       answersContainer.appendChild(btn);
     });
@@ -69,5 +89,6 @@ export const view = (() => {
     showResult,
     showQuizView,
     resetView,
+    setCategory
   };
 })();
