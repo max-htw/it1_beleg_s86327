@@ -17,6 +17,25 @@ export const model = (() => {
     correctCount = 0;
   }
 
+  async function loadExternal(quizId) {
+    const url = `https://idefix.informatik.htw-dresden.de:8888/api/quizzes/${quizId}`;
+    const username = "maximilian.lohr@stud.htw-dresden.de";
+    const password = "xorsax-sukdi0-rIjdyf";
+    const credentials = btoa(`${username}:${password}`);
+
+    fetch(url, {
+      method: 'GET',
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Basic ${credentials}`
+      }
+    })
+    .then(response => {
+      if (!response.ok) throw new Error("Fehler beim Laden des Quiz");
+      return response.json();
+    });
+  }    
+
   function getCurrentQuestion() {
     return questions[currentIndex];
   }

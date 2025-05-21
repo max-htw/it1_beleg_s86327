@@ -19,6 +19,9 @@
 #### 16.05.2025
 - KaTeX integriert über CDN und in View + Main eingepflegt
 
+#### 21.05.2025
+- Beginn der Integration der WebQuiz-API
+
 
 ## Lernfortschritt
 
@@ -30,6 +33,9 @@
 
 #### 16.05.2025
 - Beschäftigen mit WebQuiz API
+
+#### 21.05.2025
+- Per CURL in WebQuiz API auf idefix registriert und einige Fragen selbst erstellt
 
 ## Misserfolge
 
