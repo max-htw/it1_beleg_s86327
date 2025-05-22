@@ -1,6 +1,8 @@
 "use strict";
 
 import { shuffle } from "./utils.js";
+const VF = Vex.Flow;
+
 
 export const view = (() => {
   let currentCategory = "";
@@ -39,29 +41,43 @@ export const view = (() => {
 
   function showQuestion(question, onAnswer) {
     answersContainer.innerHTML = "";
+    questionText.textContent = "";
+    document.getElementById("note-canvas").innerHTML = ""; // Canvas zurücksetzen
 
+    // Wenn Kategorie Mathe → mit Vexflow rendern
+    if (currentCategory === "noten") {
+      renderNote(question.a);
+    }
     // Wenn Kategorie Mathe → mit KaTeX rendern
-    if (currentCategory === "mathe") {
+    else if (currentCategory === "mathe") {
       katex.render(question.a, questionText, { throwOnError: false });
-    } else {
+    } 
+    else {
       questionText.textContent = question.a;
     }    
 
     const shuffled = shuffle([...question.l]);
     shuffled.forEach(answer => {
       const btn = document.createElement("button");
-
-      if (currentCategory === "mathe") {
-        // Antwortelement leeren und rendern
-        btn.innerHTML = ""; // leer
-        katex.render(answer, btn, { throwOnError: false });
-      } else {
-        btn.textContent = answer;
-      }
-
+      btn.textContent = answer;
       btn.addEventListener("click", () => onAnswer(answer, question.l[0]));
       answersContainer.appendChild(btn);
     });
+  }
+
+  function renderNote(noteString) {
+    const vf = new VF.Factory({
+      renderer: { elementId: "note-canvas", width: 300, height: 120 }
+    });
+
+    const score = vf.EasyScore();
+    const system = vf.System();
+
+    system.addStave({
+      voices: [score.voice(score.notes(noteString, { stem: 'up' }))]
+    });
+
+    vf.draw();
   }
 
   function updateProgress(current, total) {

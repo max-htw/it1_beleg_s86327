@@ -22,6 +22,10 @@
 #### 21.05.2025
 - Beginn der Integration der WebQuiz-API
 
+#### 22.05.2025
+- WebQuiz-API-Integration abgeschlossen (bisher nur eine Frage)
+- Beginn der Vexflow-Integration zum Noten rendern
+
 
 ## Lernfortschritt
 
@@ -36,6 +40,10 @@
 
 #### 21.05.2025
 - Per CURL in WebQuiz API auf idefix registriert und einige Fragen selbst erstellt
+
+#### 22.05.2025
+- Um externe Fragen abzurufen, muss ich mich ins HTW-Netz verbinden, da sonst der Port 8888 blockiert wird
+- Beschäftigen mit Vexflow
 
 ## Misserfolge
 

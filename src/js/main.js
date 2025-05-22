@@ -23,8 +23,17 @@ document.addEventListener("DOMContentLoaded", () => {
     view.updateProgress(progress.current, progress.total);
   }
 
-  function handleAnswer(selected, correct) {
-    model.checkAnswer(selected, correct);
+  async function handleAnswer(selected, correctOrNull) {
+    let isCorrect = false;
+
+    if (model.getCategory() === "extern") {
+      const selectedIndex = model.getCurrentQuestion().l.indexOf(selected);
+      isCorrect = await model.submitExternalAnswer(selectedIndex);
+    } else {
+      isCorrect = selected === correctOrNull;
+    }
+
+    model.markAnswer(isCorrect);
 
     if (model.isFinished()) {
       const stats = model.getProgress();
