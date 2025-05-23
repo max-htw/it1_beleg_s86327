@@ -72,12 +72,20 @@ export const view = (() => {
 
     const score = vf.EasyScore();
     const system = vf.System();
+    
+    try {
+      const notes = score.notes(noteString, { stem: 'up' });
+      const voice = score.voice(notes);
+      // Strikten Modus deaktivieren, damit auch "Standardnoten" gezeichnet werden
+      voice.setStrict(false);
 
-    system.addStave({
-      voices: [score.voice(score.notes(noteString, { stem: 'up' }))]
-    });
-
-    vf.draw();
+      system.addStave({ voices: [voice] });
+      vf.draw();
+    }
+    catch (err) {
+      console.error("VexFlow Render Error:", err);
+      document.getElementById("note-canvas").textContent = "Noten konnten nicht dargestellt werden.";
+    }
   }
 
   function updateProgress(current, total) {

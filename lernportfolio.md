@@ -26,6 +26,11 @@
 - WebQuiz-API-Integration abgeschlossen (bisher nur eine Frage)
 - Beginn der Vexflow-Integration zum Noten rendern
 
+#### 23.05.2025 
+- Vexflow-Integration debuggen + fertigstellen (mit Hilfe von ChatGPT)
+- Bei externen Fragen wird nun eine zufällige in einem Bereich gewählt
+- Beginn bestimmte Anzahl an externen Fragen (z.B. 5 Stk.) anzuzeigen -> derzeit mit Bug
+
 
 ## Lernfortschritt
 
@@ -44,6 +49,9 @@
 #### 22.05.2025
 - Um externe Fragen abzurufen, muss ich mich ins HTW-Netz verbinden, da sonst der Port 8888 blockiert wird
 - Beschäftigen mit Vexflow
+
+#### 23.05.2025
+- Vexflow funktioniert in meinem Anwendungsfall nur, wenn der strikte Modus deaktiviert ist
 
 ## Misserfolge
 
