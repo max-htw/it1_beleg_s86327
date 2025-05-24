@@ -31,6 +31,11 @@
 - Bei externen Fragen wird nun eine zufällige in einem Bereich gewählt
 - Beginn bestimmte Anzahl an externen Fragen (z.B. 5 Stk.) anzuzeigen -> derzeit mit Bug
 
+#### 24.05.2025
+- Es werden nun 5 externe Fragen in zufälliger Reihenfolge und Auswahl angezeigt
+- Ladeanzeige inkl. Animation beim Laden der externen Fragen hinzugefügt
+- GUI verschönert (mit Hilfe von ChatGPT)
+
 
 ## Lernfortschritt
 
@@ -52,6 +57,10 @@
 
 #### 23.05.2025
 - Vexflow funktioniert in meinem Anwendungsfall nur, wenn der strikte Modus deaktiviert ist
+
+#### 24.05.2025
+- Auffrischen vom Grid-Kenntnissen
+
 
 ## Misserfolge
 

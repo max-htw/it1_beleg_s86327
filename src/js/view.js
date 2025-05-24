@@ -13,6 +13,17 @@ export const view = (() => {
   const resultArea = document.getElementById("result-area");
   const questionArea = document.getElementById("question-area");
   const summary = document.getElementById("summary");
+  const loadingArea = document.getElementById("loading-area");
+
+  function showLoading() {
+  loadingArea.classList.remove("hidden");
+  questionArea.classList.add("hidden");
+  resultArea.classList.add("hidden");
+}
+
+  function hideLoading() {
+    loadingArea.classList.add("hidden");
+  }
 
   function bindCategoryButtons(handler) {
     const buttons = document.querySelectorAll("#category-selection button");
@@ -113,6 +124,8 @@ export const view = (() => {
     showResult,
     showQuizView,
     resetView,
-    setCategory
+    setCategory,
+    showLoading,
+    hideLoading
   };
 })();

@@ -10,8 +10,14 @@
     box-sizing: border-box;
   }
   
-  body {
+  html, body {
+    height: 100%;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    }
+
+  body {
     font-family: sans-serif;
     background-color: var(--background-color);
     color: var(--font-color);
@@ -23,9 +29,14 @@
     padding: 1rem;
     text-align: center;
   }
+
+  footer {
+    border-top: 1px solid #ccc;
+  }
   
   main {
     padding: 1rem;
+    flex: 1;
   }
   
   button {
@@ -46,7 +57,33 @@
   .hidden {
     display: none;
   }
-  
+
+  #category-selection h2 {
+    text-align: center;
+  }
+
+  .category-buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem; /* You can adjust this for max space between buttons */
+    justify-content: center; /* Center the grid items horizontally */
+    justify-items: center;
+    margin-top: 1rem;
+    max-width: 520px; /* Example: 2 buttons * 240px + 1 gap of 0.75rem (~12px) */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .category-buttons button {
+    min-width: 180px;
+    max-width: 240px;
+    width: 100%;
+  }
+
+  .category-buttons button:hover {
+    background-color: #009f6b;
+  }
+
   #answers {
     display: flex;
     flex-direction: column;
@@ -58,6 +95,23 @@
     width: 100%;
     height: 1rem;
     margin-top: 1rem;
+  }
+
+  #loading-area {
+  text-align: center;
+  font-weight: bold;
+  margin: 2em;
+  font-size: 1.2em;
+}
+
+  #loading-area p::after {
+    content: "⏳";
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.3; }
   }
   
   /* ====== Responsive Design ====== */
@@ -72,4 +126,25 @@
       flex: 1 1 45%;
     }
   }
+
+  @media (min-width: 512px) {
+    .category-buttons {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 520px; 
+    }
+
+    #category-selection{
+      margin-top: 2rem;
+    }
+  }
   
+  @media (min-width: 1044px) {
+    .category-buttons {
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 1000px; /* 4 * 240px + 3 gaps */
+    }
+
+    #category-selection{
+      margin-top: 3rem;
+    }
+  }

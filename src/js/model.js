@@ -29,7 +29,7 @@ export const model = (() => {
 
         for (let i = 0; i < maxRetries; i++) {
           const randomQuizId = Math.floor(Math.random() * (quizIdMax - quizIdMin + 1)) + quizIdMin;
-          console.log(`Frage ${questions.length + 1}: Versuch ${i + 1} – Quiz-ID: ${randomQuizId}`);
+          // console.log(`Frage ${questions.length + 1}: Versuch ${i + 1} – Quiz-ID: ${randomQuizId}`);
 
           try {
             await loadExternal(randomQuizId);
@@ -98,7 +98,8 @@ export const model = (() => {
   }
 
   async function submitExternalAnswer(index) {
-    const url = `https://idefix.informatik.htw-dresden.de:8888/api/quizzes/${externalQuestion.id}/solve`;
+    const question = questions[currentIndex];
+    const url = `https://idefix.informatik.htw-dresden.de:8888/api/quizzes/${question.id}/solve`;
     const username = "maximilian.lohr@stud.htw-dresden.de";
     const password = "xorsax-sukdi0-rIjdyf";
     const credentials = btoa(`${username}:${password}`);
@@ -122,9 +123,7 @@ export const model = (() => {
 
 
   function getCurrentQuestion() {
-    return category === "extern"
-      ? externalQuestion
-      : questions[currentIndex];
+    return questions[currentIndex];
   }
 
 

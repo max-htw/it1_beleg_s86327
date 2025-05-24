@@ -18,12 +18,17 @@
   </header>
 
   <main>
+    <section id="loading-area" class="hidden">
+      <p>Fragen werden geladen...</p>
+    </section>
     <section id="category-selection">
       <h2>Kategorie wählen</h2>
-      <button data-category="web">Internet-/Webtechnologien</button>
-      <button data-category="mathe">Mathematik</button>
-      <button data-category="noten">Noten lernen</button>
-      <button data-category="extern">Externe Fragen</button>
+      <div class="category-buttons">
+        <button data-category="web">Internet-/Webtechnologien</button>
+        <button data-category="mathe">Mathematik</button>
+        <button data-category="noten">Noten lernen</button>
+        <button data-category="extern">Externe Fragen</button>
+      </div>
     </section>
 
     <section id="question-area" class="hidden">

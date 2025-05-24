@@ -9,7 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function startQuiz(category) {
     view.setCategory(category);
+    view.showLoading(); // Ladeanzeige anzeigen
     await model.load(category);
+    view.hideLoading(); // Ladeanzeige ausblenden
     view.showQuizView();
     loadNextQuestion();
   }
