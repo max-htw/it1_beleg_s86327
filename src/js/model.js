@@ -22,6 +22,10 @@ export const model = (() => {
       const numberOfQuestions = 5;
       const maxRetries = 10;
 
+      if (!navigator.onLine) {
+        throw new Error("Externe Fragen können offline nicht geladen werden.");
+      }
+
       questions = [];
 
       while (questions.length < numberOfQuestions) {
@@ -59,16 +63,6 @@ export const model = (() => {
       const data = await res.json();
       questions = shuffle(data[category] || []);
     }
-  }
-
-
-  function getCategory() {
-    return category;
-  }
-
-  function markAnswer(correct) {
-    if (correct) correctCount++;
-    currentIndex++;
   }
 
   async function loadExternal(quizId) {
@@ -121,12 +115,6 @@ export const model = (() => {
     return result.success;
   }
 
-
-  function getCurrentQuestion() {
-    return questions[currentIndex];
-  }
-
-
   function checkAnswer(selected, correct) {
     if (category === "extern") {
       const correctAnswer = externalQuestion.l[externalCorrectIndex];
@@ -141,6 +129,19 @@ export const model = (() => {
 
   function isFinished() {
     return currentIndex >= questions.length;
+  }
+
+  function getCategory() {
+    return category;
+  }
+  
+  function getCurrentQuestion() {
+    return questions[currentIndex];
+  }
+
+  function markAnswer(correct) {
+    if (correct) correctCount++;
+    currentIndex++;
   }
 
   function getProgress() {

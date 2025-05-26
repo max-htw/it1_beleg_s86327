@@ -1,3 +1,10 @@
+// Service Worker Registrierung
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js")
+    .then(() => console.log("✅ Service Worker registriert"))
+    .catch((err) => console.error("❌ Service Worker Fehler:", err));
+}
+
 "use strict";
 
 import { model } from "./model.js";
@@ -8,12 +15,19 @@ document.addEventListener("DOMContentLoaded", () => {
   view.bindRestartButton(view.resetView);
 
   async function startQuiz(category) {
-    view.setCategory(category);
-    view.showLoading(); // Ladeanzeige anzeigen
-    await model.load(category);
-    view.hideLoading(); // Ladeanzeige ausblenden
-    view.showQuizView();
-    loadNextQuestion();
+    try {
+      view.setCategory(category);
+      view.showLoading(); // Ladeanzeige anzeigen
+      await model.load(category);
+      view.hideLoading(); // Ladeanzeige ausblenden
+      view.showQuizView();
+      loadNextQuestion();
+    }
+    catch (err) {
+      view.hideLoading();
+      alert(`Fehler beim Laden der Kategorie: ${err.message}`);
+      view.resetView();
+    }
   }
 
   function loadNextQuestion() {

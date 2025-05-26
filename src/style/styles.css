@@ -6,145 +6,150 @@
     --font-color: #222;
   }
   
-  * {
-    box-sizing: border-box;
-  }
-  
-  html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    }
-
-  body {
-    font-family: sans-serif;
-    background-color: var(--background-color);
-    color: var(--font-color);
-  }
-  
-  header, footer {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 1rem;
-    text-align: center;
-  }
-
-  footer {
-    border-top: 1px solid #ccc;
-  }
-  
-  main {
-    padding: 1rem;
-    flex: 1;
-  }
-  
-  button {
-    margin: 0.5rem;
-    padding: 0.75rem 1.25rem;
-    border: none;
-    border-radius: 8px;
-    background-color: var(--accent-color);
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #009f6b;
-  }
-  
-  .hidden {
-    display: none;
-  }
-
-  #category-selection h2 {
-    text-align: center;
-  }
-
-  .category-buttons {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.75rem; /* You can adjust this for max space between buttons */
-    justify-content: center; /* Center the grid items horizontally */
-    justify-items: center;
-    margin-top: 1rem;
-    max-width: 520px; /* Example: 2 buttons * 240px + 1 gap of 0.75rem (~12px) */
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .category-buttons button {
-    min-width: 180px;
-    max-width: 240px;
-    width: 100%;
-  }
-
-  .category-buttons button:hover {
-    background-color: #009f6b;
-  }
-
-  #answers {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin: 1rem 0;
-  }
-  
-  progress {
-    width: 100%;
-    height: 1rem;
-    margin-top: 1rem;
-  }
-
-  #loading-area {
-  text-align: center;
-  font-weight: bold;
-  margin: 2em;
-  font-size: 1.2em;
+* {
+  box-sizing: border-box;
 }
 
-  #loading-area p::after {
-    content: "⏳";
-    animation: blink 1s infinite;
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
   }
 
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50%      { opacity: 0.3; }
-  }
-  
-  /* ====== Responsive Design ====== */
-  @media (min-width: 600px) {
-    #answers {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-  
-    button {
-      flex: 1 1 45%;
-    }
+body {
+  font-family: sans-serif;
+  background-color: var(--background-color);
+  color: var(--font-color);
+}
+
+header, footer {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+footer {
+  border-top: 1px solid #ccc;
+}
+
+main {
+  padding: 1rem;
+  flex: 1;
+}
+
+#keyboard {
+  margin: 20px auto;
+  display: block;
+}
+
+button {
+  margin: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--accent-color);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #009f6b;
+}
+
+.hidden {
+  display: none;
+}
+
+#category-selection h2 {
+  text-align: center;
+}
+
+.category-buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem; /* You can adjust this for max space between buttons */
+  justify-content: center; /* Center the grid items horizontally */
+  justify-items: center;
+  margin-top: 1rem;
+  max-width: 520px; /* Example: 2 buttons * 240px + 1 gap of 0.75rem (~12px) */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.category-buttons button {
+  min-width: 180px;
+  max-width: 240px;
+  width: 100%;
+}
+
+.category-buttons button:hover {
+  background-color: #009f6b;
+}
+
+#answers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+progress {
+  width: 100%;
+  height: 1rem;
+  margin-top: 1rem;
+}
+
+#loading-area {
+text-align: center;
+font-weight: bold;
+margin: 2em;
+font-size: 1.2em;
+}
+
+#loading-area p::after {
+  content: "⏳";
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.3; }
+}
+
+/* ====== Responsive Design ====== */
+@media (min-width: 600px) {
+  #answers {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
-  @media (min-width: 512px) {
-    .category-buttons {
-      grid-template-columns: repeat(2, 1fr);
-      max-width: 520px; 
-    }
-
-    #category-selection{
-      margin-top: 2rem;
-    }
+  button {
+    flex: 1 1 45%;
   }
-  
-  @media (min-width: 1044px) {
-    .category-buttons {
-      grid-template-columns: repeat(4, 1fr);
-      max-width: 1000px; /* 4 * 240px + 3 gaps */
-    }
+}
 
-    #category-selection{
-      margin-top: 3rem;
-    }
+@media (min-width: 512px) {
+  .category-buttons {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 520px; 
   }
+
+  #category-selection{
+    margin-top: 2rem;
+  }
+}
+
+@media (min-width: 1044px) {
+  .category-buttons {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1000px; /* 4 * 240px + 3 gaps */
+  }
+
+  #category-selection{
+    margin-top: 3rem;
+  }
+}

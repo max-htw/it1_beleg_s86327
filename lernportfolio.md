@@ -36,6 +36,10 @@
 - Ladeanzeige inkl. Animation beim Laden der externen Fragen hinzugefügt
 - GUI verschönert (mit Hilfe von ChatGPT)
 
+#### 26.05.2025
+- Offline-Funktionalität implementiert (manifest + sw) und getestet
+- Favicons hinzugefügt
+- Fehlermeldung beim Laden externer Fragen im Offline-Modus
 
 ## Lernfortschritt
 
@@ -60,6 +64,10 @@
 
 #### 24.05.2025
 - Auffrischen vom Grid-Kenntnissen
+
+#### 26.05.2025
+- PWA-Funktionalität und Implementierungsweise
+- Beschäftigen mit Piano-Keyboard und Notensound-Bibliotheken
 
 
 ## Misserfolge
