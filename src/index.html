@@ -11,9 +11,8 @@
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
   <script src="https://cdn.jsdelivr.net/npm/vexflow@4.2.2/build/cjs/vexflow.js"></script>
-  <!-- Tone.js + Qwerty Hancock -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.39/Tone.min.js"></script>
-  <script src="https://unpkg.com/qwerty-hancock"></script>
+  <!-- Tone.js Integration -->
+  <script src="http://unpkg.com/tone"></script>
   <!-- Favicons -->
   <link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
@@ -42,7 +41,12 @@
     </section>
 
     <section id="question-area" class="hidden">
-      <div id="note-canvas"></div>
+      <div class="note-audio-row">
+        <div id="note-canvas"></div>
+        <div id="audio-button-area" class="hidden">
+          <button id="audio-btn">Ton abspielen</button>
+        </div>
+      </div>
       <p id="question-text">Frage wird geladen...</p>
       <div id="answers">
         <div id="keyboard"></div>

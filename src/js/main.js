@@ -35,6 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!question) return;
 
     view.showQuestion(question, handleAnswer);
+    if (model.getCategory() === "noten") {
+      view.bindAudioButton(() => model.getCurrentQuestion());
+    }
     const progress = model.getProgress();
     view.updateProgress(progress.current, progress.total);
   }

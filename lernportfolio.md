@@ -41,6 +41,11 @@
 - Favicons hinzugefügt
 - Fehlermeldung beim Laden externer Fragen im Offline-Modus
 
+#### 27.05.2025
+- Versuch Piano-Keyboard und Audio-Funktion einzubauen
+- erfolgreicher Test der Installation auf dem Smartphone
+- Audio-Funktion einzeln über Button integriert
+
 ## Lernfortschritt
 
 #### 11.05.2025
@@ -69,6 +74,13 @@
 - PWA-Funktionalität und Implementierungsweise
 - Beschäftigen mit Piano-Keyboard und Notensound-Bibliotheken
 
+#### 27.05.2025
+- einige Probleme lassen sich durch Clearen des ServiceWorker-Caches lösen
+
 
 ## Misserfolge
+- Einbauen des Piano-Keyboards und der Audioausgabe:
+  - Versuch mit Qwerty Hancock, aber Fehler, da Key nicht wieder "losgelassen" wurde und somit dann endlos gedrückt gehalten wurde
+  - weitere kleine Versuche mit eigener Darstellung, aber zu aufwendig
+  - am Ende dennoch zumindest die Audiofunktion implementiert
 

@@ -38,11 +38,11 @@ folgende Kategorien sind anzubieten, ja nach gewünschter [Note](#bewertungshinw
 - Noten lernen (rendern mittels JS-Bibliothek [Vexflow](https://github.com/0xfe/vexflow) / EasyScore) ✅
 - Eingabe mittels virtuellen Piano-Keyboards statt der Auswahltasten für Noten lernen plus Ausgabe des Tons über Web Audio API (beliebige JS-Bibliothek) ❌
 
-## Technische Umsetzung ❓
+## Technische Umsetzung ✅
 - nutzen Sie für die Umsetzung HTML5/CSS3/JS ✅
 - nutzen Sie in JS den strikten Modus ✅
 - der Beleg sollte im aktuellen Firefox oder Google Chromium lauffähig sein, es wird keine Abwärtskompatibilität erwartet ✅
-- entsprechend einer PWA sollte sich die Anwendung auf einem Smartphone installieren und offline nutzen lassen❓
+- entsprechend einer PWA sollte sich die Anwendung auf einem Smartphone installieren und offline nutzen lassen✅
 - man benötigt in einer PWA ein Manifest und einen Service Worker zur Steuerung des Caches für den Offline-Betrieb und die Installation ✅
 - verwenden Sie **keine** weiteren Frameworks wie jquery, Bootstrap etc., sondern nutzen Sie die Funktionalität von ECMAScript und CSS3 in den aktuellen Browsern (TypeScript ist für Entwickler mit Vorkenntnissen erlaubt) ✅
 - Als Entwicklungsumgebung empfiehlt sich die Nutzung der Entwickertools im Browser Chromium oder Firefox ✅
@@ -94,12 +94,12 @@ folgende Kategorien sind anzubieten, ja nach gewünschter [Note](#bewertungshinw
 - Offlinefunktionalität implementieren ✅
 
 
-## Weitere Anforderungen
-- falls Sie ChatGPT u.ä. nutzen, müssen Sie dies dokumentieren und den erstellten Code erklären können
-- Dokumentation des Projektes, so dass eine andere Person ggf. am Projekt weiterarbeiten könnte
-- Legen Sie eine Datei README.md an mit relevanten Informationen zum Beleg: erfüllte Aufgaben, eventuelle Probleme, genutzter Browser, ...
-- es wird empfohlen, ein Lernportfolio zu erstellen (Dokumentation Ihrer Entwicklungsschritte, des Lernfortschritts, der Misserfolge, etc.)
-- machen Sie Vorschläge zur Erweiterung/Verbesserung des Belegs
+## Weitere Anforderungen ❌
+- falls Sie ChatGPT u.ä. nutzen, müssen Sie dies dokumentieren und den erstellten Code erklären können ✅
+- Dokumentation des Projektes, so dass eine andere Person ggf. am Projekt weiterarbeiten könnte ❌
+- Legen Sie eine Datei README.md an mit relevanten Informationen zum Beleg: erfüllte Aufgaben, eventuelle Probleme, genutzter Browser, ... ❌
+- es wird empfohlen, ein Lernportfolio zu erstellen (Dokumentation Ihrer Entwicklungsschritte, des Lernfortschritts, der Misserfolge, etc.) ✅
+- machen Sie Vorschläge zur Erweiterung/Verbesserung des Belegs ❌
 
 ## Mögliche Erweiterungen (optional, Zusatzpunkte möglich)
 - Wichtung der Aufgabenstellung anhand der bisherigen Ergebnisse

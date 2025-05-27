@@ -58,6 +58,7 @@ export const view = (() => {
     // Wenn Kategorie Mathe → mit Vexflow rendern
     if (currentCategory === "noten") {
       renderNote(question.a);
+      document.getElementById("audio-button-area").classList.remove("hidden");
     }
     // Wenn Kategorie Mathe → mit KaTeX rendern
     else if (currentCategory === "mathe") {
@@ -99,6 +100,22 @@ export const view = (() => {
     }
   }
 
+  function bindAudioButton(getQuestion) {
+    const audioBtn = document.getElementById("audio-btn");
+    if (!audioBtn) return;
+    audioBtn.onclick = () => {
+      const question = getQuestion();
+      if (!question || !question.a) return;
+
+      // Einzelne Note oder mehrere Noten?
+      // Entferne Klammern und splitte ggf.
+      let notes = question.a.replace(/[()]/g, "").split(/\s+/);
+
+      const synth = new Tone.PolySynth().toDestination();
+      synth.triggerAttackRelease(notes, "8n");
+    };
+  }
+
   function updateProgress(current, total) {
     progressBar.value = (current / total) * 100;
   }
@@ -106,6 +123,7 @@ export const view = (() => {
   function showResult(correct, total) {
     questionArea.classList.add("hidden");
     resultArea.classList.remove("hidden");
+    document.getElementById("audio-button-area").classList.add("hidden");
     summary.textContent = `Du hast ${correct} von ${total} Fragen richtig beantwortet.`;
   }
 
@@ -113,6 +131,7 @@ export const view = (() => {
     document.getElementById("category-selection").classList.remove("hidden");
     questionArea.classList.add("hidden");
     resultArea.classList.add("hidden");
+    document.getElementById("audio-button-area").classList.add("hidden");
     progressBar.value = 0;
   }
 
@@ -126,6 +145,7 @@ export const view = (() => {
     resetView,
     setCategory,
     showLoading,
-    hideLoading
+    hideLoading,
+    bindAudioButton
   };
 })();

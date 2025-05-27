@@ -13,8 +13,7 @@ const OFFLINE_FILES = [
   "https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js",
   "https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js",
   "https://cdn.jsdelivr.net/npm/vexflow@4.2.2/build/cjs/vexflow.js",
-  "https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.39/Tone.min.js",
-  "https://unpkg.com/qwerty-hancock"
+  "http://unpkg.com/tone"
 ];
 
 self.addEventListener("install", (event) => {

@@ -114,6 +114,11 @@ font-size: 1.2em;
   animation: blink 1s infinite;
 }
 
+.note-audio-row {
+  display: flex;
+  align-items: flex-end;
+}
+
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50%      { opacity: 0.3; }
