@@ -26,7 +26,7 @@
     },
     {
         "a":"(C4 E4 G4)", 
-        "l": ["C", "H", "F", "D"]
+        "l": ["C-Dur-Akkord", "E-Moll-Akkord", "D-Dur-Akkord", "E-Dur-Akkord"]
     }
     ]   
 }

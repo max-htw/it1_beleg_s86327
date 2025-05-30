@@ -46,6 +46,11 @@
 - erfolgreicher Test der Installation auf dem Smartphone
 - Audio-Funktion einzeln über Button integriert
 
+#### 30.05.2025
+- Refactoring und Kommentare schreiben (z.T. mit Hilfe von ChatGPT)
+- Dokumentation vervollständigt
+
+
 ## Lernfortschritt
 
 #### 11.05.2025

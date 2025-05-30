@@ -3,51 +3,52 @@
 import { shuffle } from "./utils.js";
 
 export const model = (() => {
+  // Variablen initialisieren
   let questions = [];
   let category = "";
   let currentIndex = 0;
   let correctCount = 0;
 
-  let externalQuestion = null; // für externes REST-Quiz
+  let externalQuestion = null; // temporäre Variable für REST-Daten
   let externalCorrectIndex = null;
 
+  // Lädt Fragen aus JSON oder REST-API
   async function load(categoryName) {
     category = categoryName;
     currentIndex = 0;
     correctCount = 0;
 
     if (category === "extern") {
-      const quizIdMin = 2000;
-      const quizIdMax = 2010;
-      const numberOfQuestions = 5;
-      const maxRetries = 10;
+      const quizIdMin = 2000; // Auswahlbereich für externe Fragen
+      const quizIdMax = 2010; // Auswahlbereich für externe Fragen
+      const numberOfQuestions = 5; // Anzahl der zu ladenden Fragen
+      const maxRetries = 10; // Anzahl an Wiederholungs-Versuchen, falls eine ID nicht vergeben ist
 
+      // Fehlermeldung beim Aufruf der externen Fragen im Offline-Modus
       if (!navigator.onLine) {
         throw new Error("Externe Fragen können offline nicht geladen werden.");
       }
 
       questions = [];
 
+      // Versuche mehrfach, gültige (nicht doppelte) Quizfragen zu laden
       while (questions.length < numberOfQuestions) {
         let success = false;
 
         for (let i = 0; i < maxRetries; i++) {
           const randomQuizId = Math.floor(Math.random() * (quizIdMax - quizIdMin + 1)) + quizIdMin;
-          // console.log(`Frage ${questions.length + 1}: Versuch ${i + 1} – Quiz-ID: ${randomQuizId}`);
 
           try {
             await loadExternal(randomQuizId);
 
-            // Duplikate vermeiden
-            const alreadyLoaded = questions.some(q => q.id === externalQuestion.id);
+            const alreadyLoaded = questions.some(q => q.id === externalQuestion.id); // prüft, ob mindestens ein Eintrag in questions schon die gleiche ID hat wie externalQuestion
             if (!alreadyLoaded) {
               questions.push(externalQuestion);
               success = true;
               break;
-            } else {
-              console.log("Quiz-ID bereits geladen, überspringe.");
             }
           } catch (error) {
+            // Fehlerausgabe bei nicht vorhandener ID
             console.warn("Fehler beim Laden von Quiz-ID", randomQuizId, ":", error.message);
           }
         }
@@ -58,6 +59,7 @@ export const model = (() => {
         }
       }
 
+    // Handling für interne Fragen
     } else {
       const res = await fetch("data/questions.json");
       const data = await res.json();
@@ -65,6 +67,7 @@ export const model = (() => {
     }
   }
 
+  // Holt eine einzelne Quizfrage vom REST-Server
   async function loadExternal(quizId) {
     const url = `https://idefix.informatik.htw-dresden.de:8888/api/quizzes/${quizId}`;
     const username = "maximilian.lohr@stud.htw-dresden.de";
@@ -91,6 +94,7 @@ export const model = (() => {
     };
   }
 
+  // Schickt Antwort zu REST-Server (bei externen Fragen)
   async function submitExternalAnswer(index) {
     const question = questions[currentIndex];
     const url = `https://idefix.informatik.htw-dresden.de:8888/api/quizzes/${question.id}/solve`;
@@ -108,23 +112,17 @@ export const model = (() => {
     });
 
     if (!res.ok) {
-      throw new Error("Antwort konnte nicht bewertet werden");
+      throw new Error("Antwort konnte nicht kontrolliert werden");
     }
 
     const result = await res.json();
     return result.success;
   }
 
-  function checkAnswer(selected, correct) {
-    if (category === "extern") {
-      const correctAnswer = externalQuestion.l[externalCorrectIndex];
-      if (selected === correctAnswer) correctCount++;
-        currentIndex++;
-    } 
-    else {
-      if (selected === correct) correctCount++;
-      currentIndex++;
-    }
+  // Korrekte Antworten zu Statistik hinzufügen
+  function markAnswer(correct) {
+    if (correct) correctCount++;
+    currentIndex++;
   }
 
   function isFinished() {
@@ -134,14 +132,9 @@ export const model = (() => {
   function getCategory() {
     return category;
   }
-  
+
   function getCurrentQuestion() {
     return questions[currentIndex];
-  }
-
-  function markAnswer(correct) {
-    if (correct) correctCount++;
-    currentIndex++;
   }
 
   function getProgress() {
@@ -155,7 +148,6 @@ export const model = (() => {
   return {
     load,
     getCurrentQuestion,
-    checkAnswer,
     isFinished,
     getProgress,
     submitExternalAnswer,

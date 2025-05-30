@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lernprogramm</title>
-  <link rel="stylesheet" href="style/styles.css">
-  <link rel="manifest" href="manifest.json">
-  <!-- KaTeX und Vexflow Integration -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style/styles.css" />
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" crossorigin="anonymous" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" crossorigin="anonymous" 
+    onload="renderMathInElement(document.body);"></script>
+
+  <!-- VexFlow -->
   <script src="https://cdn.jsdelivr.net/npm/vexflow@4.2.2/build/cjs/vexflow.js"></script>
-  <!-- Tone.js Integration -->
-  <script src="http://unpkg.com/tone"></script>
-  <!-- Favicons -->
+
+  <!-- Tone.js -->
+  <script src="https://unpkg.com/tone"></script>
+
+  <!-- Favicons & PWA Manifest -->
   <link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
   <link rel="shortcut icon" href="/icons/favicon.ico" />
@@ -21,15 +29,19 @@
   <meta name="apple-mobile-web-app-title" content="LernApp" />
   <link rel="manifest" href="/icons/site.webmanifest" />
 </head>
+
 <body>
   <header>
     <h1>Lernprogramm</h1>
   </header>
 
   <main>
+    <!-- Ladeanzeige beim Abrufen der Fragen -->
     <section id="loading-area" class="hidden">
       <p>Fragen werden geladen...</p>
     </section>
+
+    <!-- Kategorieauswahl -->
     <section id="category-selection">
       <h2>Kategorie wählen</h2>
       <div class="category-buttons">
@@ -40,23 +52,26 @@
       </div>
     </section>
 
+    <!-- Fragenbereich -->
     <section id="question-area" class="hidden">
       <div class="note-audio-row">
         <div id="note-canvas"></div>
         <div id="audio-button-area" class="hidden">
-          <button id="audio-btn">Ton abspielen</button>
+          <button id="audio-btn">Ton abspielen</button> 
         </div>
       </div>
+
+      <!-- Antwortmöglichkeiten -->
       <p id="question-text">Frage wird geladen...</p>
-      <div id="answers">
-        <div id="keyboard"></div>
-        <!-- Buttons für Antwortmöglichkeiten werden dynamisch eingefügt -->
-      </div>
-      
+      <div id="answers"></div>
+
+      <!-- Progress-Bar -->
       <progress id="progress-bar" value="0" max="100"></progress>
+
       <button class="restart-btn">Zurück zur Kategorienauswahl</button>
     </section>
 
+    <!-- Statistikanzeige -->
     <section id="result-area" class="hidden">
       <h2>Ergebnis</h2>
       <p id="summary">Du hast X von Y Fragen richtig beantwortet.</p>
@@ -64,10 +79,12 @@
     </section>
   </main>
 
+  <!-- Fußzeile -->
   <footer>
-    <p>&copy; 2025 Lernapp – HTW Dresden (s86327)</p>
+    <p>&copy; 2025 LernApp – HTW Dresden (s86327)</p>
   </footer>
 
+  <!-- Script-Verlinkung (Presenter) -->
   <script src="js/main.js" type="module"></script>
 </body>
 </html>
