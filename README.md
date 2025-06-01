@@ -23,11 +23,6 @@
 - Weitere Fragen einbinden (extern o. über JSON-Datei)
 - Anzeige und Korrektur der falschen Antworten in Auswertung
 
-## Nutzungs-Dokumentation
-- Zum Starten der PWA muss ein lokaler Server eingerichtet werden
-- Zum Testen kann entweder eine VS-Code-Extension wie Live Server oder ein HTTP-Server über Python oder Node.js genutzt werden
-- Alternativ könnte die PWA über GitHub-Pages hochgeladen und dann global genutzt werden
-
 ## Weitere Dokumentationen
 - [Entwicklerdokumentation](entwicklerdokumentation.md)
 - [Lernportfolio](lernportfolio.md)

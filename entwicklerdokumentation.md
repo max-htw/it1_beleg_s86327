@@ -2,6 +2,7 @@
 
 Dieses Lernprogramm wurde im Rahmen eines Belegs im Modul *Webprogrammierung* entwickelt.  
 Der Beleg dient der praktischen Anwendung der Kenntnisse zu HTML, CSS, Javascript sowie einer Server-API. Die Umsetzung als PWA ermöglicht auch die einfache und komfortable Nutzung in mobilen Geräten.
+Das Programm ist unter [https://www.informatik.htw-dresden.de/~s86327/Lernprogramm/](https://www.informatik.htw-dresden.de/~s86327/Lernprogramm/) abrufbar.
 
 ---
 

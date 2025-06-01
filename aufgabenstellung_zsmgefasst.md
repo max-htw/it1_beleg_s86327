@@ -28,7 +28,3 @@
 - Mathematik (lokal via questions.json, Rendern mittels KaTeX)
 - Noten lernen (lokal via questions.json, Rendern mittels Vexflow)
 - externe Aufgaben (via externem Server, geholt mittels Ajax/Rest)
-
-
-
-
